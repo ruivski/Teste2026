@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convite Lambretas 2026</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --accent: #0f766e;
+      --accent-hover: #115e59;
+      --ok: #166534;
+      --border: #d1d5db;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(160deg, #ecfeff, #eff6ff);
+      color: var(--text);
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 520px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .form {
+      display: grid;
+      gap: 12px;
+    }
+
+    input {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 1rem;
+    }
+
+    button {
+      border: none;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      background: var(--accent);
+      color: #ffffff;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    button:hover {
+      background: var(--accent-hover);
+    }
+
+    .success {
+      display: none;
+      margin-top: 16px;
+      padding: 12px;
+      border: 1px solid #86efac;
+      border-radius: 10px;
+      background: #f0fdf4;
+      color: var(--ok);
+      text-align: center;
+      font-weight: 600;
+    }
+
+    /* Secao pronta para futura expansao com puzzles, imagens ou video. */
+    .future-content {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border);
+      font-size: 0.95rem;
+      color: #4b5563;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1>Convite Lambretas 2026</h1>
+    <p>Se estás aqui… já começaste!</p>
+
+    <div class="form">
+      <input id="codeInput" type="text" placeholder="Introduz o código" aria-label="Código de convite">
+      <button id="enterButton" type="button">Entrar</button>
+    </div>
+
+    <div id="successMessage" class="success" role="status" aria-live="polite">
+      Parabéns! Estás convidado para ser animador de Lambretas 🔥
+    </div>
+
+    <section class="future-content" id="futureContent">
+      Área reservada para expansão: aqui podes adicionar puzzles, imagens ou vídeo.
+    </section>
+  </main>
+
+  <script>
+    const codeInput = document.getElementById('codeInput');
+    const enterButton = document.getElementById('enterButton');
+    const successMessage = document.getElementById('successMessage');
+
+    function validarCodigo() {
+      const codigo = codeInput.value.trim();
+
+      if (codigo === 'LAMBRETAS') {
+        successMessage.style.display = 'block';
+      } else {
+        successMessage.style.display = 'none';
+        alert('Código errado, tenta novamente');
+      }
+    }
+
+    enterButton.addEventListener('click', validarCodigo);
+
+    codeInput.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter') {
+        validarCodigo();
+      }
+    });
+  </script>
+</body>
+</html>
